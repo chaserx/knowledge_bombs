@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Knowledge Bomb - Cluster Munitions Edition</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Knowledge Bomb</h1>
+          <p>
+            <small>Dropped by Chase Southard</small>
+          </p>
+        </section>
+
+        <section>
+          <h2>Statement</h2>
+          <p>I'm just a programmer.<br> I possess one or more of the following traits:</p>
+          <ol>
+            <li>Laziness</li>
+            <li>Impatience</li>
+            <li>Hubris</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>I hope to achieve greatness.</h2>
+          <!-- <p><small>one day, maybe.</small></p> -->
+        </section>
+
+        <section>
+          <h2>tool time</h2>
+          <p><small>I'm going to quickly share a few tools and tricks</small></p>
+        </section>
+
+        <section>
+          <h2>Laziness Tool 1:<br>Awesome Print in IRB</h2>
+        </section>
+
+        <section>
+          <h3>Awesome Print</h3>
+          <p><small>Like Pretty Print but 20% cooler.</small></p>
+          <p>gem install awesome_print</p>
+        </section>
+
+        <section>
+          <h3>Awesome Print</h3>
+          <p>Really shines with Arrays and Hashes</p>
+          <p><small>https://github.com/michaeldv/awesome_print#examples</small></p>
+        </section>
+
+        <section>
+          <a class='image' src="#">
+            <img src='img/screenshot1.png'>
+          </a>
+        </section>
+
+        <section>
+          <img src='img/screenshot2.png'>
+        </section>
+
+        <section>
+          <h3>Add this to your .irbrc</h3>
+          <pre>
+            <code>
+              require 'irb/completion'
+              require 'irb/ext/save-history'
+
+              # awesome print
+              begin
+                require 'awesome_print'
+                AwesomePrint.irb!
+              rescue LoadError => err
+                warn "Couldn't load awesome_print: #{err}"
+              end
+
+              # irb history
+              ARGV.concat [ "--readline", "--prompt-mode", "simple" ]
+              IRB.conf[:SAVE_HISTORY] = 1000
+              IRB.conf[:HISTORY_FILE] = File::expand_path("~/.irbhistory")
+            </code>
+          </pre>
+          <h3>to get this awesomeness all the time</h3>
+        </section>
+
+        <section>
+          <h2>Laziness Tool 2: <br>Factory Girl in the console</h2>
+          <p><small>http://stackoverflow.com/a/23580836/281699</small></p>
+        </section>
+
+        <section>
+          <pre>
+            <code>
+              ○ bundle exec rails console
+              irb(main):001:0> require 'factory_girl'
+              irb(main):002:0> include FactoryGirl::Syntax::Methods
+              irb(main):003:0> FactoryGirl.find_definitions
+              irb(main):005:0> u = create(:user)
+              irb(main):006:0> ap u
+              #<User:0x00000002894318> {
+                                :id => 96,
+                             :email => "jane.smith1@example.com",
+                      :display_name => "jane smith",
+                         :image_url => nil,
+              :authentication_token => nil,
+               :platform_account_id => nil,
+                        :created_at => Fri, 29 Aug 2014 04:32:57 UTC +00:00,
+                        :updated_at => Fri, 29 Aug 2014 04:32:57 UTC +00:00
+              }
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Laziness Tool 3: <br>Alfred</h2>
+          <img style="border:0; box-shadow: none" src='img/alfred.png' height='200'>
+          <p><small>https://www.alfredapp.com/</small></p>
+        </section>
+
+        <section>
+          <h2>Powerpack: Snippets!</h2>
+          <p><small>live demo</small></p>
+        </section>
+
+        <section>
+          <h2>Impatience Tool: <br>gems-cli</h2>
+          <p><small>https://github.com/chaserx/gems-cli</small></p>
+        </section>
+
+        <section>
+          <pre>
+            <code>
+            ○ gems s chase
+            Running your search for chase...
+            0: gem 'purchase', '~> 1.0.15'
+            1: gem 'fuel_purchase', '~> 0.0.14'
+            2: gem 'enju_purchase_request', '~> 0.1.1'
+            3: gem 'chaser', '~> 0.0.3'
+            4: gem 'zombie-chaser', '~> 0.1.0'
+            5: gem 'exemplor-chaser', '~> 0.0.2'
+            6: gem 'rail_chaser', '~> 0.0.3'
+            Page: 1/2
+
+            Select from 0..6, (n)ext, (p)revious, (m)ore versions, or (q)uit #=> 0
+            Copied purchase 1.0.15 to your clipboard!
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Hubris Tool 1: <br>sandbox</h2>
+        </section>
+
+        <section>
+          <p>bundle exec rails console</p>
+        </section>
+
+        <section>
+          <p>bundle exec rails console production</p>
+        </section>
+
+        <section>
+          <p>bundle exec rails console production --sandbox</p>
+        </section>
+
+        <section>
+          <pre>
+            <code>
+              ± bundle exec rails console --sandbox
+              Loading development environment in sandbox (Rails 4.2.5.1)
+              Any modifications you make will be rolled back on exit
+              irb(main):001:0>
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Hubris Tool 2: <br>Dash</h2>
+          <img style="border:0; box-shadow: none" src='img/dash.png'>
+          <p><small>http://kapeli.com/dash</small></p>
+        </section>
+
+        <section>
+          <img class='stretch', style="border:0; box-shadow: none", src='img/dash_screenshot1.png'>
+        </section>
+
+        <section>
+          <img class='stretch', style="border:0; box-shadow: none", src='img/dash_screenshot2.png'>
+        </section>
+
+        <section>
+          <h1>THE END</h1>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
